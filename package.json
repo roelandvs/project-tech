@@ -1,0 +1,29 @@
+{
+  "name": "@roelandvs/tech-dating-feature",
+  "version": "1.0.0",
+  "description": "feature for dating app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roelandvs/project-tech.git"
+  },
+  "keywords": [
+    "CMD",
+    "project-tech"
+  ],
+  "author": "Roeland van Stee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roelandvs/project-tech/issues"
+  },
+  "homepage": "https://github.com/roelandvs/project-tech#readme",
+  "dependencies": {
+    "camelcase": "^6.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
