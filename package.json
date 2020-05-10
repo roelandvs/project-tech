@@ -4,7 +4,7 @@
   "description": "feature for dating app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/roelandvs/project-tech#readme",
   "dependencies": {
-    "camelcase": "^6.0.0"
+    "camelcase": "^6.0.0",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
