@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <!-- The dynamic person property inside the obj in parameters of the render-->
+    <h1>This is the account of <%= person %></h1>
+    <p><strong>Age:</strong> <%= data.age %></p>
+    <p><strong>Study:</strong> <%= data.study %></p>
+
+    <h3>Hobbies:</h3>
+    <% for (let i = 0; i < hobbies.length; i++) { %>
+    <ul>
+        <li><%= hobbies[i] %></li>
+    </ul>
+    <% } %>
+</body>
+<%- include('footer'); -%>
+</html>

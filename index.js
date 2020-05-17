@@ -1,10 +1,16 @@
 const express = require('express')
+const ejs = require('ejs')
 const camelCase = require('camelcase')
 const app = express()
 const port = 3000
 
-//link to the static file directory
-app.use('/static', express.static('static'))
+var profileData = {age: 20, study: 'CMD'}
+var hobbies = ['sporten', 'gamen', 'express gebruiken']
+
+app
+	.set('view engine', 'ejs') //making ejs the view engine of express
+	.use('/static', express.static('static')) //link to the static file directory
+
 
 //homepage that uses an html file
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'))
@@ -24,6 +30,13 @@ app.get('/account/:id', (req, res) => res.send('Your account number is: ' + '<h2
 //I was curious what would happen if I linked to a font
 //spoiler: it downloads that font...
 app.get('/fonts', (req, res) => res.sendFile(__dirname + '/static/fonts/proxima_nova_light.ttf'))
+
+//you don't send ejs files, but render them
+//express knows the files are in the views folder, and knows its a ejs file. So the path is just 'profile'
+app.get('/profile/:name', (req, res) => {
+	res.render('profile', {person: req.params.name, data: profileData, hobbies: hobbies})
+})
+
 
 //handles 404 pages
 app.use(function (req, res, next) {
