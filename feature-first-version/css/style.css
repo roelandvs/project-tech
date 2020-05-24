@@ -4,11 +4,28 @@
 	padding: 0;
 }
 
+html {
+	width: 100vw;
+}
+
 body {
-	background-color: #fafafa;
 	font-family: montserrat, helvetica;
+	background-image: url(../img/pink-circles.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+header {
+	width: 100%;
+	background-color: #ffff;
+	height: 50px;
+	box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,.15);
+}
+
+main {
 	padding: 0 20px;
 }
+
 
 h1 {
 	font-size: 2em;
@@ -26,9 +43,8 @@ img {
 
 input {
 	display: block;
-	background-color: #f5f6f7;
-	border: none;
-	/*border-radius: 8px;*/
+	background-color: #F5F6F7;
+	border: 1px solid #DCDCDC;
 	width: 100%;
 	margin: 5px 0 20px;
 	padding: 10px 10px;
@@ -64,12 +80,11 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
 
 .register-container {
 	background: white;
-	margin: 50px auto auto;
+	margin: 75px auto 50px;
 	max-width: 450px;
 	display: flex;
 	padding: 50px;
-	/*border-radius: 20px;*/
-	box-shadow: 0px 4px 30px 3px rgba(0,0,0,0.1);
+	box-shadow: 0 0.3rem 1rem rgba(0,0,0,.15);
 }
 
 .gender-container {
@@ -86,11 +101,11 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
 }
 
 .btn-next {
-	background-color: #ff2453;
+	background-color: #FF0066;
 	color: white;
 	text-decoration: none;
 	padding: 10px 40px;
-	border-radius: 10px;
+	border-radius: 100px;
 	display: inline-block;
 	margin-top: 30px;
 }
@@ -99,9 +114,6 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
 	background-color: #ff0066;
 	transition: 0.5s all;
 }
-
-
-
 
 
 
