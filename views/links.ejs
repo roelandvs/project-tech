@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- waarom moet de css link eerst in static? -->
+        <link rel="stylesheet" type="text/css" href="../static/css/index.css"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register</title>
+    </head>
+
+    <body>
+        <%- include('header'); -%>
+        <main>
+            <div class="register-container">
+                <h1>LINKS</h1>
+                <ul>
+                    <li><a target="blank" href="http://localhost:3000/contact">Contact page</a></li>
+                    <li><a target="blank" href="http://localhost:3000/about">About page</a></li>
+                    <li><a target="blank" href="http://localhost:3000/hshdf">404 pages</a></li>
+                    <li><a target="blank" href="http://localhost:3000/mp3">Goeie tune</a></li>
+                    <li><a target="blank" href="http://localhost:3000/account/123">Look at your account number (without templating engine)</a></li>
+                    <li><a target="blank" href="http://localhost:3000/profile/Roeland">Look at your profile (with templating engine)</a></li>
+                </ul>
+
+                <div class="btn-next-container">
+                    <a class="btn-next" href="/register">Dating Feature</a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

@@ -20,12 +20,12 @@ header {
 	background-color: #ffff;
 	height: 50px;
 	box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,.15);
+	padding: 15px 20px;
 }
 
 main {
 	padding: 0 20px;
 }
-
 
 h1 {
 	font-size: 2em;
@@ -41,6 +41,10 @@ img {
 	position: relative;
 }
 
+form {
+	width: 100%;
+}
+
 input {
 	display: block;
 	background-color: #F5F6F7;
@@ -54,10 +58,6 @@ input {
 
 input:focus {
 	outline: none;
-}
-
-form {
-	width: 100%;
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -82,7 +82,6 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
 	background: white;
 	margin: 75px auto 50px;
 	max-width: 450px;
-	display: flex;
 	padding: 50px;
 	box-shadow: 0 0.3rem 1rem rgba(0,0,0,.15);
 }
@@ -113,7 +112,29 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
 .btn-next:hover {
 	background-color: #ff0066;
 	transition: 0.5s all;
+	color: #FFF;
 }
+
+/*For the link page*/
+ul {
+	list-style-type: none;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	color: #FF0066;
+	transition: all 0.5s;
+}
+
+
+
 
 
 
