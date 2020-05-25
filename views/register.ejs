@@ -12,10 +12,10 @@
     <%- include('header'); -%>
     <main>
         <div class="register-container">
-            <form action="/accountPreview" method="post">
+            <form method="POST" action="/account-preview">
                 <h1>MAKE ACCOUNT</h1>
                 <label for="name">First Name</label>
-                <input type="text" name="name" id="name" maxlength="25" required>
+                <input type="text" name="firstName" id="name" maxlength="25" required>
             
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email">
@@ -26,9 +26,12 @@
                 <label for="second_password">Repeat Password</label>
                 <input type="password" name="second_password" id="second_password">
 
-                <div class="btn-next-container">
-                    <a class="btn-next" href="/register-two">Next</a>
-                </div>
+                <!-- <button type="submit" value="submit">
+                    <div class="btn-next-container">
+                        <a class="btn-next" href="/register-two">Next</a>
+                    </div>
+                </button> -->
+                <input type="submit" value="submit">
             </form>
         </div>
     </main>
