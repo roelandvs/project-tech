@@ -15,17 +15,17 @@
         <form method="post" action="/account-preview">
             <h1>LET'S BEGIN</h1>
             <label for="birthday">Birthday</label>
-            <input type="date" name="birthday" id="birthday" required>
+            <input type="date" name="birthday" id="birthday">
 
             <label for="gender">Your Gender</label>
             <ul class="gender-container">
                 <li>
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="male" required>
                     <label for="male">Male</label>
                 </li>
 
                 <li>
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="gender" value="female" required>
                     <label for="female">Female</label>
                 </li>
             </ul>
@@ -33,19 +33,19 @@
             <label for="preference">Looking for</label>
             <ul class="gender-container">
                 <li>
-                    <input type="checkbox" id="pref-male" name="preference" value="pref-male">
+                    <input type="checkbox" id="pref-male" name="preference" value="male">
                     <label for="pref-male">Male</label>
                 </li>
 
                 <li>
-                    <input type="checkbox" id="pref-female" name="preference" value="pref-female">
+                    <input type="checkbox" id="pref-female" name="preference" value="female">
                     <label for="pref-female">Female</label>
                 </li>
             </ul>
 
-            <button class="btn-next-container">
-                <a class="btn-next" href="/account-preview">Next</a>
-            </button>
+            <div class="btn-next-container">
+                <button class="btn-next">Next</a>
+            </div>
         </form>
     </div>
 </body>
