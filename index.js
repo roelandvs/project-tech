@@ -8,18 +8,18 @@ const port = 3000
 
 var profileData = {age: 20, study: 'CMD'}
 var hobbies = ['sporten', 'gamen', 'express gebruiken']
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var accountInfo;
 
 app
 	.set('view engine', 'ejs') //making ejs the view engine of express
 	.use('/static', express.static('static')) //link to the static file directory
-	// .use(bodyParser.urlencoded({extended: true})) //enables to get data through post request
+	.use(bodyParser.urlencoded({extended: true})) //enables to get data through post request
 
 	.get('/', homePage) //homepage that uses an html file
-	.get('/register', (req, res) => res.render('register')) //renders dating feature page one
-	.get('/register-two', (req, res) => res.render('register-two')) //renders dating feature page two
-	.get('/account-preview', (req, res) => res.render('account-preview')) //renders dating feature page two
-	.post('/register', urlencodedParser, registerData)
+	.get('/register', (req, res) => res.render('register'))
+	.get('/register-two', (req, res) => res.render('register-two'))
+	.get('/account-preview', seeAccount)
+	.post('/account-preview', registerData)
 
 	.get('/contact', (req, res) => res.send('This is the contact page!')) //contact page that just contains text
 	.get('/about', (req, res) => res.send('This is the about page!')) //about page that just contains text
@@ -28,21 +28,24 @@ app
 	.get('/fonts', (req, res) => res.sendFile(__dirname + '/static/fonts/proxima_nova_light.ttf')) //link to font, not usefull
 	.get('/profile/:name', dynamicProfile) //shows dynamic profile
 
+
 function homePage(req, res) {
-	res.render('links') //renders links.ejs
+	res.render('links')
 }
 
 function registerData(req, res) {
-	// console.log(req.body)
-	res.render('register')
+	res.render('account-preview')
 
-	var account = [	
-	]
-
-	account.push({
+	accountInfo = {
 		name: req.body.firstName,
 		email: req.body.email
-	})
+	}
+
+	res.redirect('/account-preview')
+}
+
+function seeAccount(req, res) {
+	res.render('account-preview', {account: accountInfo})
 }
 
 function dynamicProfile(req, res) {

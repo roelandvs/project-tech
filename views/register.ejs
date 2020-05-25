@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- waarom moet de css link eerst in static? -->
     <link rel="stylesheet" type="text/css" href="../static/css/index.css"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
@@ -12,7 +11,7 @@
     <%- include('header'); -%>
     <main>
         <div class="register-container">
-            <form method="POST" action="/account-preview">
+            <form method="post" action="/account-preview">
                 <h1>MAKE ACCOUNT</h1>
                 <label for="name">First Name</label>
                 <input type="text" name="firstName" id="name" maxlength="25" required>
@@ -23,15 +22,9 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
 
-                <label for="second_password">Repeat Password</label>
-                <input type="password" name="second_password" id="second_password">
-
-                <!-- <button type="submit" value="submit">
-                    <div class="btn-next-container">
-                        <a class="btn-next" href="/register-two">Next</a>
-                    </div>
-                </button> -->
-                <input type="submit" value="submit">
+                <div class="btn-next-container">
+                    <button class="btn-next">Next</a>
+                </div>
             </form>
         </div>
     </main>

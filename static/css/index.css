@@ -102,8 +102,11 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
 .btn-next {
 	background-color: #FF0066;
 	color: white;
+	font-size: 1em;
+	font-family: montserrat, helvetica;
 	text-decoration: none;
 	padding: 10px 40px;
+	border: 0;
 	border-radius: 100px;
 	display: inline-block;
 	margin-top: 30px;
