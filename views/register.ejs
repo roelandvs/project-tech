@@ -12,19 +12,67 @@
     <main>
         <div class="register-container">
             <form method="post" action="/account-preview">
-                <h1>MAKE ACCOUNT</h1>
-                <label for="name">First Name</label>
-                <input type="text" name="firstName" id="name" maxlength="25" required>
-            
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" required>
+                <fieldset>
+                    <h1>MAKE ACCOUNT</h1>
+                    <label for="name">First Name</label>
+                    <input type="text" name="firstName" id="name" maxlength="25" required>
+                
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
 
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
 
-                <div class="btn-next-container">
-                    <button class="btn-next">Next</a>
-                </div>
+                    <div class="btn-next-container">
+                        <button type="button" class="btn-next">Next</a>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <h1>LET'S BEGIN</h1>
+                    <label for="birthday">Birthday</label>
+                    <input type="date" name="birthday" id="birthday">
+
+                    <label for="gender">Your Gender</label>
+                    <ul class="gender-container">
+                        <li>
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Male</label>
+                        </li>
+
+                        <li>
+                            <input type="radio" id="female" name="gender" value="female" required>
+                            <label for="female">Female</label>
+                        </li>
+                    </ul>
+
+                    <label for="preference">Looking for</label>
+                    <ul class="gender-container">
+                        <li>
+                            <input type="checkbox" id="pref-male" name="preference" value="male">
+                            <label for="pref-male">Male</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" id="pref-female" name="preference" value="female">
+                            <label for="pref-female">Female</label>
+                        </li>
+                    </ul>
+
+                    <div class="btn-next-container">
+                        <button type="button" class="btn-next">Next</a>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <h1>MORE INFO</h1>
+                    <label for="name">Dit moet ik nog verder uitwerken</label>
+                    <input type="text" name="name" id="name" maxlength="25" required>
+
+                    <div class="btn-next-container">
+                        <button type="submit" class="btn-next">Next</a>
+                    </div>
+                </fieldset>
             </form>
         </div>
     </main>

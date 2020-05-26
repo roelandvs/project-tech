@@ -45,6 +45,10 @@ form {
 	width: 100%;
 }
 
+fieldset {
+	margin: 30px auto;
+}
+
 input {
 	display: block;
 	background-color: #F5F6F7;

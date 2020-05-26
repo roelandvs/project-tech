@@ -39,9 +39,9 @@ function registerData(req, res) {
 	accountInfo = {
 		name: req.body.firstName,
 		email: req.body.email,
-		// birthday: req.body.birthday,
-		// gender: req.body.gender,
-		// preference: req.body.preference
+		birthday: req.body.birthday,
+		gender: req.body.gender,
+		preference: req.body.preference
 	}
 
 	res.redirect('/account-preview')
