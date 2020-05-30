@@ -5,6 +5,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const slug = require('slug')
 const port = 3000
+require('dotenv').config()
 
 var profileData = {age: 20, study: 'CMD'}
 var hobbies = ['sporten', 'gamen', 'express gebruiken']
