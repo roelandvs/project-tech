@@ -5,11 +5,24 @@ const app = express()
 const bodyParser = require('body-parser')
 const slug = require('slug')
 const port = 3000
+const mongo = require('mongodb')
 require('dotenv').config()
 
-var profileData = {age: 20, study: 'CMD'}
-var hobbies = ['sporten', 'gamen', 'express gebruiken']
+var profileData = {age: 20, study: 'CMD'};
+var hobbies = ['sporten', 'gamen', 'express gebruiken'];
 var accountInfo;
+
+var db = null;
+const url = process.env.MONGO_URL;
+
+mongo.MongoClient.connect(url, function(err, client) { //connecting to mongodb. Inside package mongo there's a MongoClient with function connect.
+  if (err) {
+  	throw err;
+  }	else {
+    console.log('Database connectie werkt :)');
+  }
+  db = client.db(process.env.DB_NAME);
+})
 
 app
 	.set('view engine', 'ejs') //making ejs the view engine of express
@@ -34,18 +47,37 @@ function homePage(req, res) {
 	res.render('links')
 }
 
-function registerData(req, res) {
-	res.render('account-preview')
+// function registerData(req, res) {
+// 	res.render('account-preview')
 
-	accountInfo = {
+// 	accountInfo = {
+// 		name: req.body.firstName,
+// 		email: req.body.email,
+// 		birthday: req.body.birthday,
+// 		gender: req.body.gender,
+// 		preference: req.body.preference
+// 	}
+
+// 	res.redirect('/account-preview')
+// }
+
+function registerData(req, res) {
+	db.collection('profileInfo').insertOne({
 		name: req.body.firstName,
 		email: req.body.email,
 		birthday: req.body.birthday,
 		gender: req.body.gender,
 		preference: req.body.preference
-	}
+	}, check)
 
-	res.redirect('/account-preview')
+	function check(err, data) {
+		if (err) {
+			next(err);
+		} else {
+			res.redirect('/account-preview')
+		}
+
+	}
 }
 
 function seeAccount(req, res) {
