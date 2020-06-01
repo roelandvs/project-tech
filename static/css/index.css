@@ -46,10 +46,11 @@ form {
 }
 
 fieldset {
-	margin-bottom: : 50px;
+	margin-bottom: 50px;
+	padding: 20px 0;
 }
 
-input {
+input, textarea {
 	display: block;
 	background-color: #F5F6F7;
 	border: 1px solid #DCDCDC;
@@ -68,7 +69,7 @@ input[type="radio"], input[type="checkbox"] {
 	display: none;
 }
 
-input[type="radio"] + label,  input[type="checkbox"] + label{
+input[type="radio"] + label,  input[type="checkbox"] + label {
 	margin: 5px 20px 5px 0;
 	border: 1px solid #b5b5b5;
 	color: #b5b5b5;
@@ -76,7 +77,7 @@ input[type="radio"] + label,  input[type="checkbox"] + label{
 	padding: 10px 10px;
 }
 
-input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
+input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
 	border: 1px solid #ff2453;
 	color: #ff2453;
 	transition: 0.5s all;

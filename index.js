@@ -6,11 +6,12 @@ const bodyParser = require('body-parser')
 const slug = require('slug')
 const port = 3000
 const mongo = require('mongodb')
+const session = require('express-session')
 require('dotenv').config()
 
 var profileData = {age: 20, study: 'CMD'};
 var hobbies = ['sporten', 'gamen', 'express gebruiken'];
-var accountInfo;
+// var accountInfo;
 
 var db = null;
 const url = process.env.MONGO_URL;
@@ -28,10 +29,17 @@ app
 	.set('view engine', 'ejs') //making ejs the view engine of express
 	.use('/static', express.static('static')) //link to the static file directory
 	.use(bodyParser.urlencoded({extended: true})) //enables to get data through post request
+	.use(session({
+		resave: false,
+	    saveUninitialized: true,
+	    secret: process.env.SESSION_PW
+	}))
+
 
 	.get('/', homePage) //homepage that uses an html file
 	.get('/register', (req, res) => res.render('register'))
-	.get('/register-two', (req, res) => res.render('register-two'))
+	.get('/update-description', seeDescription)
+	// .get('/register-two', (req, res) => res.render('register-two'))
 	.get('/account-preview', seeAccount)
 	.post('/account-preview', registerData)
 
@@ -48,8 +56,19 @@ function homePage(req, res) {
 }
 
 // function registerData(req, res) {
-// 	res.render('account-preview')
+// 	req.session.user = {
+// 		name: req.body.firstName,
+// 		email: req.body.email,
+// 		birthday: req.body.birthday,
+// 		gender: req.body.gender,
+// 		preference: req.body.preference,
+// 		description: req.body.description
+// 	}
 
+// 	res.redirect('/account-preview')
+// }
+
+// function registerData(req, res) {
 // 	accountInfo = {
 // 		name: req.body.firstName,
 // 		email: req.body.email,
@@ -61,27 +80,34 @@ function homePage(req, res) {
 // 	res.redirect('/account-preview')
 // }
 
+// sending info to database
 function registerData(req, res) {
-	db.collection('profileInfo').insertOne({
+	req.session.user = {
 		name: req.body.firstName,
 		email: req.body.email,
 		birthday: req.body.birthday,
 		gender: req.body.gender,
-		preference: req.body.preference
-	}, check)
+		preference: req.body.preference,
+		description: req.body.description
+	}
+
+	db.collection('profileInfo').insertOne(req.session.user, check)
 
 	function check(err, data) {
 		if (err) {
 			next(err);
 		} else {
-			res.redirect('/account-preview')
+			res.redirect('/update-description')
 		}
-
 	}
 }
 
 function seeAccount(req, res) {
-	res.render('account-preview', {account: accountInfo})
+	res.render('account-preview', {account: req.session.user})
+}
+
+function seeDescription(req, res) {
+	res.render('update-description', {description: req.session.user.description})
 }
 
 function dynamicProfile(req, res) {
