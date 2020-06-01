@@ -1,17 +1,16 @@
 const express = require('express')
 const ejs = require('ejs')
-const camelCase = require('camelcase') // moet ik nogsteeds gebruiken
 const app = express()
 const bodyParser = require('body-parser')
 const slug = require('slug')
 const port = 3000
 const mongo = require('mongodb')
 const session = require('express-session')
+const { ObjectID } = require('mongodb');
 require('dotenv').config()
 
 var profileData = {age: 20, study: 'CMD'};
 var hobbies = ['sporten', 'gamen', 'express gebruiken'];
-// var accountInfo;
 
 var db = null;
 const url = process.env.MONGO_URL;
@@ -35,13 +34,12 @@ app
 	    secret: process.env.SESSION_PW
 	}))
 
-
 	.get('/', homePage) //homepage that uses an html file
 	.get('/register', (req, res) => res.render('register'))
-	.get('/update-description', seeDescription)
-	// .get('/register-two', (req, res) => res.render('register-two'))
+	.post('/register', registerData)
+	.get('/description-page', seeDescription)
+	.post('/description-page', updateDescription)
 	.get('/account-preview', seeAccount)
-	.post('/account-preview', registerData)
 
 	.get('/contact', (req, res) => res.send('This is the contact page!')) //contact page that just contains text
 	.get('/about', (req, res) => res.send('This is the about page!')) //about page that just contains text
@@ -50,35 +48,11 @@ app
 	.get('/fonts', (req, res) => res.sendFile(__dirname + '/static/fonts/proxima_nova_light.ttf')) //link to font, not usefull
 	.get('/profile/:name', dynamicProfile) //shows dynamic profile
 
+var currentUser;
 
 function homePage(req, res) {
 	res.render('links')
 }
-
-// function registerData(req, res) {
-// 	req.session.user = {
-// 		name: req.body.firstName,
-// 		email: req.body.email,
-// 		birthday: req.body.birthday,
-// 		gender: req.body.gender,
-// 		preference: req.body.preference,
-// 		description: req.body.description
-// 	}
-
-// 	res.redirect('/account-preview')
-// }
-
-// function registerData(req, res) {
-// 	accountInfo = {
-// 		name: req.body.firstName,
-// 		email: req.body.email,
-// 		birthday: req.body.birthday,
-// 		gender: req.body.gender,
-// 		preference: req.body.preference
-// 	}
-
-// 	res.redirect('/account-preview')
-// }
 
 // sending info to database
 function registerData(req, res) {
@@ -97,18 +71,54 @@ function registerData(req, res) {
 		if (err) {
 			next(err);
 		} else {
-			res.redirect('/update-description')
+			res.redirect('/description-page')
+		}
+	}
+}
+
+async function seeDescription(req, res) {
+	currentUser = await db.collection('profileInfo').findOne({"_id": mongo.ObjectID(req.session.user._id)})
+	res.render('description-page', {description: currentUser.description})
+}
+
+function updateDescription(req, res) {
+	db.collection('profileInfo').updateOne({
+		"_id": mongo.ObjectID(req.session.user._id)},
+		{$set: 
+			{description: req.body.description}
+		}
+	, check)
+
+	function check(err, data) {
+		if (err) {
+			next(err);
+		} else {
+			res.redirect('/account-preview')
 		}
 	}
 }
 
 function seeAccount(req, res) {
-	res.render('account-preview', {account: req.session.user})
+	console.log('User =', currentUser)
+	res.render('account-preview', {account: currentUser})
 }
 
-function seeDescription(req, res) {
-	res.render('update-description', {description: req.session.user.description})
-}
+// function updateDescription(req, res, next) {
+//   db.collection('profileInfo').updateOne({ _id: ObjectID(req.body._id) },
+//     {
+//       $set: {
+//         description: req.body.description,
+//       },
+//     }, check);
+
+//   function check(err, data) {
+//     if (err) {
+//       next(err);
+//     } else {
+//       res.redirect('/account-preview');
+//     }
+//   }
+// }
 
 function dynamicProfile(req, res) {
 	res.render('profile', {person: req.params.name, data: profileData, hobbies: hobbies})//renders profile.ejs

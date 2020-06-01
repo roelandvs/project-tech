@@ -48,6 +48,7 @@ form {
 fieldset {
 	margin-bottom: 50px;
 	padding: 20px 0;
+	border: 1px solid #DCDCDC;
 }
 
 input, textarea {
@@ -59,6 +60,7 @@ input, textarea {
 	padding: 10px 10px;
 	font-size: 0.8em;
 	color: #5c5c5c;
+	resize: none;
 }
 
 input:focus {
