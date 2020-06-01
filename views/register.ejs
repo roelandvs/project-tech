@@ -12,7 +12,7 @@
     <main>
         <p>Progressive disclosure moet op deze pagina nog toegepast worden voor FE</p>
         <div class="register-container">
-            <form method="post" action="/register">
+            <form method="post" action="/register" enctype="multipart/form-data">
                 <fieldset>
                     <h1>MAKE ACCOUNT</h1>
                     <label for="name">First Name</label>
@@ -59,6 +59,16 @@
                             <label for="pref-female">Female</label>
                         </li>
                     </ul>
+
+                    <div class="btn-next-container">
+                        <button type="button" class="btn-next">Next</a>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <h1>PROFILE PICTURE</h1>
+                    <label for="profilePicture"></label>
+                    <input type="file" id="img" name="profilePicture" accept="image/*" required>
 
                     <div class="btn-next-container">
                         <button type="button" class="btn-next">Next</a>

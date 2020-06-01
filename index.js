@@ -7,10 +7,8 @@ const port = 3000
 const mongo = require('mongodb')
 const session = require('express-session')
 const { ObjectID } = require('mongodb');
+const multer  = require('multer')
 require('dotenv').config()
-
-var profileData = {age: 20, study: 'CMD'};
-var hobbies = ['sporten', 'gamen', 'express gebruiken'];
 
 var db = null;
 const url = process.env.MONGO_URL;
@@ -24,6 +22,11 @@ mongo.MongoClient.connect(url, function(err, client) { //connecting to mongodb. 
   db = client.db(process.env.DB_NAME);
 })
 
+var profileData = {age: 20, study: 'CMD'};
+var hobbies = ['sporten', 'gamen', 'express gebruiken'];
+var upload = multer({ dest: 'static/uploads/' })
+var currentUser;
+
 app
 	.set('view engine', 'ejs') //making ejs the view engine of express
 	.use('/static', express.static('static')) //link to the static file directory
@@ -36,7 +39,7 @@ app
 
 	.get('/', homePage) //homepage that uses an html file
 	.get('/register', (req, res) => res.render('register'))
-	.post('/register', registerData)
+	.post('/register', upload.single('profilePicture'), registerData)
 	.get('/description-page', seeDescription)
 	.post('/description-page', updateDescription)
 	.get('/account-preview', seeAccount)
@@ -48,20 +51,19 @@ app
 	.get('/fonts', (req, res) => res.sendFile(__dirname + '/static/fonts/proxima_nova_light.ttf')) //link to font, not usefull
 	.get('/profile/:name', dynamicProfile) //shows dynamic profile
 
-var currentUser;
-
 function homePage(req, res) {
 	res.render('links')
 }
 
-// sending info to database
-function registerData(req, res) {
+// storing inputs in req.session and in database
+function registerData(req, res) { 
 	req.session.user = {
 		name: req.body.firstName,
 		email: req.body.email,
 		birthday: req.body.birthday,
 		gender: req.body.gender,
 		preference: req.body.preference,
+		picture: req.file,
 		description: req.body.description
 	}
 
@@ -76,11 +78,13 @@ function registerData(req, res) {
 	}
 }
 
-async function seeDescription(req, res) {
-	currentUser = await db.collection('profileInfo').findOne({"_id": mongo.ObjectID(req.session.user._id)})
+//finding and showing description of user in their session
+async function seeDescription(req, res) { //async function because promise (user_id) was pending
+	currentUser = await db.collection('profileInfo').findOne({"_id": mongo.ObjectID(req.session.user._id)}) //stored globally for re-use
 	res.render('description-page', {description: currentUser.description})
 }
 
+//updating the description of the profile
 function updateDescription(req, res) {
 	db.collection('profileInfo').updateOne({
 		"_id": mongo.ObjectID(req.session.user._id)},
@@ -99,26 +103,9 @@ function updateDescription(req, res) {
 }
 
 function seeAccount(req, res) {
-	console.log('User =', currentUser)
-	res.render('account-preview', {account: currentUser})
+	console.log('User =', currentUser) //to test
+	res.render('account-preview', {account: currentUser}) //shows an old value of the database :/
 }
-
-// function updateDescription(req, res, next) {
-//   db.collection('profileInfo').updateOne({ _id: ObjectID(req.body._id) },
-//     {
-//       $set: {
-//         description: req.body.description,
-//       },
-//     }, check);
-
-//   function check(err, data) {
-//     if (err) {
-//       next(err);
-//     } else {
-//       res.redirect('/account-preview');
-//     }
-//   }
-// }
 
 function dynamicProfile(req, res) {
 	res.render('profile', {person: req.params.name, data: profileData, hobbies: hobbies})//renders profile.ejs

@@ -34,12 +34,12 @@ h1 {
 	text-align: center;
 }
 
-img {
+/*img {
 	width: 25px;
 	height: 35px;
 	margin-right: -25px;
 	position: relative;
-}
+}*/
 
 form {
 	width: 100%;
@@ -85,6 +85,16 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
 	transition: 0.5s all;
 }
 
+label + input[type="file"] {
+	background-color: #FFF;
+	width: 100%;
+	margin: 5px 0 20px;
+	padding: 10px 10px;
+	font-size: 0.8em;
+	color: #5c5c5c;
+	resize: none;
+}
+
 .register-container {
 	background: white;
 	margin: 75px auto 50px;
@@ -123,6 +133,11 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
 	background-color: #ff0066;
 	transition: 0.5s all;
 	color: #FFF;
+}
+
+#profile-picture {
+	width: 70%;
+	margin: 0 15% 20px 15%;
 }
 
 /*For the link page*/
