@@ -24,6 +24,8 @@ MONGO_URL=<url to mongoDB>
 SESSION_PW=<session secret>
 ```
 
+## Scheme of database
+
 ## Install guide
 ##### 1. Clone the repo
 ```
