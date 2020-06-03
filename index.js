@@ -37,13 +37,16 @@ app
 	    secret: process.env.SESSION_PW
 	}))
 
+	//pages of feature
 	.get('/', homePage) //homepage that uses an html file
 	.get('/register', (req, res) => res.render('register'))
 	.post('/register', upload.single('profilePicture'), registerData)
 	.get('/description-page', seeDescription)
 	.post('/description-page', updateDescription)
 	.get('/account-preview', seeAccount)
+	.post('/account-preview', deleteAccount)
 
+	//pages of practice
 	.get('/contact', (req, res) => res.send('This is the contact page!')) //contact page that just contains text
 	.get('/about', (req, res) => res.send('This is the about page!')) //about page that just contains text
 	.get('/mp3', (req, res) => res.sendFile(__dirname + '/static/tunes/cant-stop.mp3')) //send a mp3 file if the user goes to /mp3
@@ -102,8 +105,22 @@ function updateDescription(req, res) {
 	}
 }
 
+function deleteAccount(req, res) {
+	db.collection('profileInfo').deleteOne({
+		"_id": mongo.ObjectID(req.session.user._id)
+	}, check)
+
+	function check(err, data) {
+		if (err) {
+			next(err);
+		} else {
+			res.redirect('/register')
+		}
+	}
+}
+
 function seeAccount(req, res) {
-	console.log('User =', currentUser) //to test
+	// console.log('User =', currentUser) //to test
 	res.render('account-preview', {account: currentUser}) //shows an old value of the database :/
 }
 

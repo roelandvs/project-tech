@@ -48,7 +48,7 @@ form {
 fieldset {
 	margin-bottom: 50px;
 	padding: 20px 0;
-	border: 1px solid #DCDCDC;
+	border: 0px solid #DCDCDC;
 }
 
 input, textarea {
@@ -97,7 +97,7 @@ label + input[type="file"] {
 
 .register-container {
 	background: white;
-	margin: 75px auto 50px;
+	margin: 50px auto 50px;
 	max-width: 450px;
 	padding: 50px;
 	box-shadow: 0 0.3rem 1rem rgba(0,0,0,.15);
@@ -135,9 +135,33 @@ label + input[type="file"] {
 	color: #FFF;
 }
 
+.button-container {
+	display: flex;
+	align-content: space-around;
+}
+
+.profile-info {
+	margin-bottom: 5px;
+}
+
+.delete-button {
+	color: red;
+	font-size: 1em;
+	font-family: montserrat, helvetica;
+	padding: 10px 20px;
+	border: 1px solid transparent;
+	border-radius: 100px;
+	margin-top: 30px;
+}
+
+.delete-button:hover {
+	border: 1px solid red;
+	transition: 1s all;
+}
+
 #profile-picture {
-	width: 70%;
-	margin: 0 15% 20px 15%;
+	width: 80%;
+	margin: 0 10% 20px;
 }
 
 /*For the link page*/
