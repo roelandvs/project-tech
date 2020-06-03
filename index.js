@@ -25,7 +25,7 @@ mongo.MongoClient.connect(url, function(err, client) { //connecting to mongodb. 
 var profileData = {age: 20, study: 'CMD'};
 var hobbies = ['sporten', 'gamen', 'express gebruiken'];
 var upload = multer({ dest: 'static/uploads/' })
-var currentUser;
+// var currentUser; // comments voor een vraag tijdens beoordeling
 
 app
 	.set('view engine', 'ejs') //making ejs the view engine of express
@@ -83,7 +83,7 @@ function registerData(req, res) {
 
 //finding and showing description of user in their session
 async function seeDescription(req, res) { //async function because promise (user_id) was pending
-	currentUser = await db.collection('profileInfo').findOne({"_id": mongo.ObjectID(req.session.user._id)}) //stored globally for re-use
+	let currentUser = await db.collection('profileInfo').findOne({"_id": mongo.ObjectID(req.session.user._id)}) //stored globally for re-use
 	res.render('description-page', {description: currentUser.description})
 }
 
@@ -119,9 +119,9 @@ function deleteAccount(req, res) {
 	}
 }
 
-function seeAccount(req, res) {
-	// console.log('User =', currentUser) //to test
-	res.render('account-preview', {account: currentUser}) //shows an old value of the database :/
+async function seeAccount(req, res) {
+	// res.render('account-preview', {account: currentUser) //waarom werkt dit niet?
+	res.render('account-preview', {account: await db.collection('profileInfo').findOne({"_id": mongo.ObjectID(req.session.user._id)})})
 }
 
 function dynamicProfile(req, res) {
