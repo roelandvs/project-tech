@@ -18,6 +18,12 @@ In this repository you will find a project that I made for Project Tech. The dat
 ##### DevDependencies
 - `nodemon`
 
+##### Scheme of .env file
+```
+MONGO_URL=<url to mongoDB>
+SESSION_PW=<session secret>
+```
+
 ## Install guide
 ##### 1. Clone the repo
 ```
