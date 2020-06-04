@@ -25,7 +25,7 @@ SESSION_PW=<session secret>
 ```
 
 ## Scheme of database
-![database-scheme](https://user-images.githubusercontent.com/59770136/83689981-364d6f80-a5f0-11ea-963a-23140c503ce5.png)
+![database-scheme](https://user-images.githubusercontent.com/59770136/83758464-6b9aa180-a672-11ea-8cdd-f426223ba852.png)
 
 ## Install guide
 ##### 1. Clone the repo
