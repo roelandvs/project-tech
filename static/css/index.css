@@ -20,7 +20,7 @@ header {
 	background-color: #ffff;
 	height: 50px;
 	box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,.15);
-	padding: 15px 20px;
+	padding: 6px 30px;
 }
 
 main {
@@ -92,6 +92,10 @@ label + input[type="file"] {
 	font-size: 0.8em;
 	color: #5c5c5c;
 	resize: none;
+}
+
+header img {
+	height: 100%;
 }
 
 .register-container {
