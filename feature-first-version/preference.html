@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 </head>
+
 <body>
-    <div class="register-container">
-        <a href="index.html"><img src="img/arrow.png"></a>
-    <form action="#" method="post">
-        <h1>LET'S BEGIN</h1>
-            <label for="birthday">Birthday</label>
-            <input type="date" name="birthday" id="birthday" required>
+    <header>
+        <img src="img/logo.png" alt="logo">
+    </header>
 
-            <label for="gender">Your Gender</label>
-            <ul class="gender-container">
-                <li>
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Male</label>
-                </li>
+    <main>
+        <div class="progress-bar progress-bar-1"></div>
+        <div class="register-container">
+            <a href="index.html"><img src="img/arrow.png"></a>
+            <form action="more-info.html" method="post">
+                <fieldset>
+                    <h1>LET'S BEGIN</h1>
+                    <label for="birthday">Birthday</label>
+                    <input type="date" name="birthday" id="birthday" required>
 
-                <li>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female">Female</label>
-                </li>
-            </ul>
+                    <label for="gender">Your Gender</label>
+                    <ul class="gender-container">
+                        <li>
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Male</label>
+                        </li>
 
-            <label for="preference">Looking for</label>
-            <ul class="gender-container">
-                <li>
-                    <input type="checkbox" id="pref-male" name="preference" value="pref-male">
-                    <label for="pref-male">Male</label>
-                </li>
+                        <li>
+                            <input type="radio" id="female" name="gender" value="female" required>
+                            <label for="female">Female</label>
+                        </li>
+                    </ul>
 
-                <li>
-                    <input type="checkbox" id="pref-female" name="preference" value="pref-female">
-                    <label for="pref-female">Female</label>
-                </li>
-            </ul>
+                    <label for="preference">Looking for</label>
+                    <ul class="gender-container">
+                        <li>
+                            <input type="checkbox" id="pref-male" name="preference" value="male">
+                            <label for="pref-male">Male</label>
+                        </li>
 
-            <div class="btn-next-container">
-                <a class="btn-next" href="more-info.html">Next</a>
-            </div>
-    </form>
-    </div>
+                        <li>
+                            <input type="checkbox" id="pref-female" name="preference" value="female">
+                            <label for="pref-female">Female</label>
+                        </li>
+                    </ul>
+
+                    <div class="btn-next-container">    
+                        <button type="submit" class="btn-next">Next</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </main>
 </body>
+
 </html>

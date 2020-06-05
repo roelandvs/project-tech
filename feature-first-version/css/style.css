@@ -20,12 +20,12 @@ header {
 	background-color: #ffff;
 	height: 50px;
 	box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,.15);
+	padding: 6px 30px;
 }
 
 main {
 	padding: 0 20px;
 }
-
 
 h1 {
 	font-size: 2em;
@@ -34,14 +34,17 @@ h1 {
 	text-align: center;
 }
 
-img {
-	width: 25px;
-	height: 35px;
-	margin-right: -25px;
-	position: relative;
+form {
+	width: 100%;
 }
 
-input {
+fieldset {
+	/*margin-bottom: 50px;*/
+	/*padding: 20px 0;*/
+	border: 0px solid #DCDCDC;
+}
+
+input, textarea {
 	display: block;
 	background-color: #F5F6F7;
 	border: 1px solid #DCDCDC;
@@ -50,41 +53,57 @@ input {
 	padding: 10px 10px;
 	font-size: 0.8em;
 	color: #5c5c5c;
+	resize: none;
 }
 
 input:focus {
 	outline: none;
 }
 
-form {
-	width: 100%;
-}
-
 input[type="radio"], input[type="checkbox"] {
 	display: none;
 }
 
-input[type="radio"] + label,  input[type="checkbox"] + label{
+input[type="radio"] + label,  input[type="checkbox"] + label {
 	margin: 5px 20px 5px 0;
 	border: 1px solid #b5b5b5;
 	color: #b5b5b5;
-	/*border-radius: 8px;*/
 	padding: 10px 10px;
 }
 
-input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
+input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
 	border: 1px solid #ff2453;
 	color: #ff2453;
 	transition: 0.5s all;
 }
 
+label + input[type="file"] {
+	background-color: #FFF;
+	width: 100%;
+	margin: 5px 0 20px;
+	padding: 10px 10px;
+	font-size: 0.8em;
+	color: #5c5c5c;
+	resize: none;
+}
+
+header img {
+	height: 100%;
+}
+
 .register-container {
 	background: white;
-	margin: 75px auto 50px;
+	margin: 50px auto 50px;
 	max-width: 450px;
-	display: flex;
 	padding: 50px;
 	box-shadow: 0 0.3rem 1rem rgba(0,0,0,.15);
+}
+
+.register-container img {
+	width: 25px;
+	height: 35px;
+	margin-right: -25px;
+	position: relative;
 }
 
 .gender-container {
@@ -103,8 +122,11 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
 .btn-next {
 	background-color: #FF0066;
 	color: white;
+	font-size: 1em;
+	font-family: montserrat, helvetica;
 	text-decoration: none;
 	padding: 10px 40px;
+	border: 0;
 	border-radius: 100px;
 	display: inline-block;
 	margin-top: 30px;
@@ -113,7 +135,79 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label{
 .btn-next:hover {
 	background-color: #ff0066;
 	transition: 0.5s all;
+	color: #FFF;
+}
+
+.button-container {
+	display: flex;
+	align-content: space-around;
+}
+
+.profile-info {
+	margin-bottom: 5px;
+}
+
+.delete-button {
+	color: red;
+	font-size: 1em;
+	font-family: montserrat, helvetica;
+	padding: 10px 20px;
+	border: 1px solid transparent;
+	border-radius: 100px;
+	margin-top: 30px;
+}
+
+.delete-button:hover {
+	border: 1px solid red;
+	transition: 1s all;
+}
+
+.progress-bar {
+	height: 10px;
+	background-color: #FF0066; 
+	margin-left: -20px;
+}
+
+.progress-bar-1 {
+	width: 20vw;
+}
+
+.progress-bar-2 {
+	width: 40vw;
+}
+
+.progress-bar-3 {
+	width: 60vw;
+}
+
+.progress-bar-4 {
+	width: 80vw;
+}
+
+.progress-bar-5 {
+	width: 100vw;
 }
 
 
+#profile-picture {
+	width: 80%;
+	margin: 0 10% 20px;
+}
 
+/*For the link page*/
+ul {
+	list-style-type: none;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	color: #FF0066;
+	transition: all 0.5s;
+}

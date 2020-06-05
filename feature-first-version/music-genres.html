@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <header>
+        <img src="img/logo.png" alt="logo">
+    </header>
+
+    <main>
+        <div class="progress-bar progress-bar-4"></div>
+        <div class="register-container">
+            <a href="description.html"><img src="img/arrow.png"></a>
+            <form action="succes-page.html" method="post">
+                <fieldset>
+                    <h1>YOUR TASTE</h1>
+                    <label for="music">Genre(s):</label>
+                    <ul class="gender-container">
+                        <li>
+                            <input type="checkbox" id="rock" name="rock" value="male">
+                            <label for="rock">Rock</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" id="pop" name="pop" value="pop">
+                            <label for="pop">Pop</label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" id="more" name="more" value="more">
+                            <label for="more">More</label>
+                        </li>
+                    </ul>
+
+                    <label for="artist">Favorite artist:</label>
+                    <input type="text" name="artist" id="artist" required>
+
+                    <label for="song">Favorite song:</label>
+                    <input type="text" name="song" id="song" required>
+
+                    <div class="btn-next-container">    
+                        <button type="submit" class="btn-next">Done</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
