@@ -38,12 +38,6 @@ form {
 	width: 100%;
 }
 
-fieldset {
-	/*margin-bottom: 50px;*/
-	/*padding: 20px 0;*/
-	border: 0px solid #DCDCDC;
-}
-
 input, textarea {
 	display: block;
 	background-color: #F5F6F7;
