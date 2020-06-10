@@ -46,7 +46,6 @@ form {
 }
 
 fieldset {
-	margin-bottom: 50px;
 	padding: 20px 0;
 	border: 0px solid #DCDCDC;
 }
@@ -117,6 +116,13 @@ header img {
 .btn-next-container {
 	width: 100%;
 	text-align: center;
+	display: flex;
+	justify-content: space-around;
+}
+
+.btn-submit-container {
+	width: 100%;
+	text-align: center;
 }
 
 .btn-next {
@@ -125,7 +131,7 @@ header img {
 	font-size: 1em;
 	font-family: montserrat, helvetica;
 	text-decoration: none;
-	padding: 10px 40px;
+	padding: 10px 30px;
 	border: 0;
 	border-radius: 100px;
 	display: inline-block;
@@ -138,9 +144,17 @@ header img {
 	color: #FFF;
 }
 
-.button-container {
-	display: flex;
-	align-content: space-around;
+.btn-previous {
+	background-color: #FFF;
+	color: #b5b5b5;
+	font-size: 1em;
+	font-family: montserrat, helvetica;
+	text-decoration: none;
+	padding: 8px 28px;
+	border: 1px solid #b5b5b5;
+	border-radius: 100px;
+	display: inline-block;
+	margin-top: 30px;
 }
 
 .profile-info {
@@ -183,6 +197,19 @@ a {
 a:hover {
 	color: #FF0066;
 	transition: all 0.5s;
+}
+
+/*classes for JS to add*/
+.addVisbility {
+	display: inline-block;
+}
+
+.makeInvisible {
+	display: none;
+}
+
+.invalid {
+	background-color: pink;
 }
 
 

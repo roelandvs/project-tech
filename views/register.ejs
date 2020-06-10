@@ -10,7 +10,6 @@
 <body>
     <%- include('header'); -%>
     <main>
-        <!-- <p>Progressive disclosure moet op deze pagina nog toegepast worden voor FE</p> -->
         <div class="register-container">
             <form method="post" action="/register" enctype="multipart/form-data">
                 <fieldset>
@@ -24,9 +23,9 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password">
 
-<!--                     <div class="btn-next-container">
-                        <button type="button" class="btn-next">Next</a>
-                    </div> -->
+                    <div class="btn-next-container">
+                        <button type="button" class="btn-next">Next</button>
+                    </div>
                 </fieldset>
 
                 <fieldset>
@@ -60,19 +59,21 @@
                         </li>
                     </ul>
 
-<!--                     <div class="btn-next-container">
-                        <button type="button" class="btn-next">Next</a>
-                    </div> -->
+                    <div class="btn-next-container">
+                        <button type="button" class="btn-previous">Back</button>
+                        <button type="button" class="btn-next">Next</button>
+                    </div>
                 </fieldset>
 
                 <fieldset>
                     <h1>PROFILE PICTURE</h1>
                     <label for="profilePicture"></label>
                     <input type="file" id="img" name="profilePicture" accept="image/*" required>
-<!-- 
+
                     <div class="btn-next-container">
-                        <button type="button" class="btn-next">Next</a>
-                    </div> -->
+                        <button type="button" class="btn-previous">Back</button>
+                        <button type="button" class="btn-next">Next</button>
+                    </div>
                 </fieldset>
 
                 <fieldset>
@@ -80,13 +81,14 @@
                     <label for="description">Describe yourself</label>
                     <textarea name="description" rows="6" cols="50" required></textarea>
 
-                    <div class="btn-next-container">
+                    <div class="btn-submit-container">
+                        <button type="button" class="btn-previous">Back</button>
                         <button type="submit" class="btn-next">Next</button>
                     </div>
                 </fieldset>
             </form>
         </div>
     </main>
-    <script type="text/javascript"></script>
+    <script type="text/javascript" src="../static/js/javascript.js"></script>
 </body>
 </html>
