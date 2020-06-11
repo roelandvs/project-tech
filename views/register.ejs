@@ -16,12 +16,16 @@
                     <h1>MAKE ACCOUNT</h1>
                     <label for="name">First Name</label>
                     <input type="text" name="firstName" id="name" minlength="2" maxlength="25" required>
+                    <p class="errorMessage" id="error-name"></p>
                 
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" required>
+                    <p class="errorMessage" id="error-email"></p>
+
 
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password">
+                    <p class="errorMessage" id="error-password"></p>
 
                     <div class="btn-next-container">
                         <button type="button" class="btn-next">Next</button>
@@ -32,6 +36,7 @@
                     <h1>LET'S BEGIN</h1>
                     <label for="birthday">Birthday</label>
                     <input type="date" name="birthday" id="birthday">
+                    <p class="errorMessage" id="error-birthday"></p>
 
                     <label for="gender">Your Gender</label>
                     <ul class="gender-container">
@@ -45,6 +50,8 @@
                             <label for="female">Female</label>
                         </li>
                     </ul>
+                    <p class="errorMessage" id="error-gender"></p>
+
 
                     <label for="preference">Looking for</label>
                     <ul class="gender-container">
@@ -58,6 +65,7 @@
                             <label for="pref-female">Female</label>
                         </li>
                     </ul>
+                    <p class="errorMessage" id="error-preference"></p>
 
                     <div class="btn-next-container">
                         <button type="button" class="btn-previous">Back</button>
@@ -69,6 +77,7 @@
                     <h1>PROFILE PICTURE</h1>
                     <label for="profilePicture"></label>
                     <input type="file" id="img" name="profilePicture" accept="image/*" required>
+                    <p class="errorMessage" id="error-profilePicture"></p>
 
                     <div class="btn-next-container">
                         <button type="button" class="btn-previous">Back</button>

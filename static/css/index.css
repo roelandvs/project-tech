@@ -34,19 +34,21 @@ h1 {
 	text-align: center;
 }
 
-/*img {
-	width: 25px;
-	height: 35px;
-	margin-right: -25px;
-	position: relative;
-}*/
-
 form {
 	width: 100%;
 }
 
+label {
+	margin: 20px 0 0;
+	display: inline-block;
+}
+
+h1 + label{
+	margin-top: 0;
+}
+
 fieldset {
-	padding: 20px 0;
+	padding: 20px 0 10px;
 	border: 0px solid #DCDCDC;
 }
 
@@ -55,7 +57,7 @@ input, textarea {
 	background-color: #F5F6F7;
 	border: 1px solid #DCDCDC;
 	width: 100%;
-	margin: 5px 0 20px;
+	margin: 5px 0 0;
 	padding: 10px 10px;
 	font-size: 0.8em;
 	color: #5c5c5c;
@@ -71,7 +73,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 input[type="radio"] + label,  input[type="checkbox"] + label {
-	margin: 5px 20px 5px 0;
+	margin: 5px 20px 0 0;
 	border: 1px solid #b5b5b5;
 	color: #b5b5b5;
 	padding: 10px 10px;
@@ -86,7 +88,6 @@ input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
 label + input[type="file"] {
 	background-color: #FFF;
 	width: 100%;
-	margin: 5px 0 20px;
 	padding: 10px 10px;
 	font-size: 0.8em;
 	color: #5c5c5c;
@@ -109,8 +110,8 @@ header img {
 	display: flex;
 	flex-wrap: wrap;
 	list-style-type: none;
-	margin: 5px 0 20px;
-	padding: 15px 0;
+	/*margin: 5px 0 20px;*/
+	/*padding: 15px 0;*/
 }
 
 .btn-next-container {
@@ -118,6 +119,7 @@ header img {
 	text-align: center;
 	display: flex;
 	justify-content: space-around;
+	margin-top: 40px;
 }
 
 .btn-submit-container {
@@ -135,11 +137,10 @@ header img {
 	border: 0;
 	border-radius: 100px;
 	display: inline-block;
-	margin-top: 30px;
 }
 
 .btn-next:hover {
-	background-color: #ff0066;
+	/*background-color: #ff0066;*/
 	transition: 0.5s all;
 	color: #FFF;
 }
@@ -154,7 +155,6 @@ header img {
 	border: 1px solid #b5b5b5;
 	border-radius: 100px;
 	display: inline-block;
-	margin-top: 30px;
 }
 
 .profile-info {
@@ -186,9 +186,9 @@ ul {
 	list-style-type: none;
 }
 
-li {
+/*li {
 	margin-bottom: 10px;
-}
+}*/
 
 a {
 	color: black;
@@ -209,7 +209,13 @@ a:hover {
 }
 
 .invalid {
-	background-color: pink;
+	background-color: #FFF4F7;
+	border: 1px solid #FF0066;
+}
+
+.errorMessage {
+	color: #FF0066;
+	font-size: 0.9em;
 }
 
 
