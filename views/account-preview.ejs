@@ -11,7 +11,7 @@
     <%- include('header'); -%>
     <div class="register-container">
         <h1>ACCOUNT PREVIEW</h1>
-        <img id="profile-picture" src="../static/uploads/<%= account.picture.filename %>">
+        <img id="profile-picture" src="../static/uploads/<%= account.image.filename %>">
         
         <p>Name:</p>
         <p class="profile-info"><strong><%= account.name %></strong></p>
@@ -32,7 +32,7 @@
         <p class="profile-info"><strong><%= account.description %></strong></p>
 
 
-        <div class="button-container">
+        <div class="button-next-container">
             <form method="post" action="/account-preview">
                 <button class=delete-button>
                     Delete account
