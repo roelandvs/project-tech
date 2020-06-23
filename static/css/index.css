@@ -111,7 +111,7 @@ header img {
 
 .register-container {
   background: white;
-  margin: 10vw auto 50px;
+  margin: 10vh auto 50px;
   min-height: 500px;
   box-shadow: 0 0.3rem 1rem rgba(0,0,0,.15);
   width: 100%;
@@ -184,7 +184,7 @@ header img {
   padding: 10px 20px;
   border: 1px solid transparent;
   border-radius: 100px;
-  margin-top: 30px;
+  /*margin-top: 30px;*/
   background-color: #FFF;
 }
 
@@ -196,6 +196,14 @@ header img {
 #profile-picture {
   width: 80%;
   margin: 0 10% 20px;
+}
+
+.account-preview {
+  padding: 20px 30px 80px;
+}
+
+.btn-submit-container form {
+  width: auto;
 }
 
 

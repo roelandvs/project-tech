@@ -72,7 +72,7 @@ function checkInput() {
 
             case "password":
                 if (input[i].value == false) {
-                    document.getElementById('error-password').innerHTML = 'Password should contain: ...';
+                    document.getElementById('error-password').innerHTML = 'Password is required';
                     input[i].classList.add('invalid');
                     valid = false;
                 } else if (input[i].classList.contains('invalid')) {
