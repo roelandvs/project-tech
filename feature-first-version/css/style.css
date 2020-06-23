@@ -198,11 +198,15 @@ header img {
   transition: 1s all;
 }
 
-#profile-picture {
-  width: 80%;
-  margin: 0 10% 20px;
+.succes-icon {
+  width: 50%;
+  margin: 30px 25% 50px;
 }
 
+
+.succes-page p {
+  margin: 0 auto;
+}
 
 /*classes for JS to add*/
 .dontDisplay {
